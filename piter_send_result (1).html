@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Питер в воскресенье</title>
+<style>
+*{box-sizing:border-box}
+body{
+  font-family:Arial,sans-serif;
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+  background:#f5f1ea;
+  color:#1f1f1f;
+}
+h1{
+  margin:5px 0 18px;
+  font-size:28px;
+}
+.card{
+  background:white;
+  padding:15px;
+  margin:15px 0;
+  border-radius:14px;
+  box-shadow:0 2px 10px rgba(0,0,0,.09);
+}
+h2{
+  margin:0 0 5px;
+  font-size:21px;
+}
+.time{
+  color:#666;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.option{
+  margin:12px 0;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+}
+.option label{
+  display:block;
+  cursor:pointer;
+}
+.option input{
+  transform:scale(1.25);
+  margin-right:8px;
+}
+.small{
+  color:#555;
+  display:block;
+  margin-top:5px;
+  line-height:1.35;
+}
+input[type=text],textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+.send{
+  width:100%;
+  padding:16px 18px;
+  border:none;
+  border-radius:14px;
+  background:#0b7a34;
+  color:white;
+  font-weight:bold;
+  font-size:20px;
+  cursor:pointer;
+  margin-top:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.18);
+}
+.send:active{
+  transform:scale(.99);
+}
+.hint{
+  color:#666;
+  font-size:13px;
+  margin-top:10px;
+  text-align:center;
+}
+.toast{
+  display:none;
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  background:#111;
+  color:white;
+  padding:14px 18px;
+  border-radius:999px;
+  font-weight:bold;
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
+  z-index:999;
+}
+</style>
+</head>
+<body>
+
+<h1>🍻 Питер в воскресенье</h1>
+
+<div class="card">
+  <label><b>Имя</b></label>
+  <input type="text" id="name" placeholder="Например: Серёга">
+</div>
+
+<div class="card">
+  <h2>🚄 Разгон</h2>
+  <div class="time">15:30–16:30</div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s1" value="А. Режим спецназа" checked>
+      <b>А. Режим спецназа</b>
+      <span class="small">Кинули вещи в отель и сразу в центр.</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s1" value="Б. Режим людей">
+      <b>Б. Режим людей</b>
+      <span class="small">Заселились, выдохнули и по бокалу для настройки.</span>
+    </label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🏛 Культурная программа</h2>
+  <div class="time">16:30–18:15</div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s2" value="А. Эрмитаж" checked>
+      <b>А. Эрмитаж</b>
+      <span class="small">Чтобы потом честно говорить: «Да, был».</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s2" value="Б. Исаакий + центр">
+      <b>Б. Исаакий + центр</b>
+      <span class="small">Красиво, быстро и без музейного марафона.</span>
+    </label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🚤 На воду</h2>
+  <div class="time">18:30–20:00</div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s3" value="А. Каналы Петербурга" checked>
+      <b>А. Каналы Петербурга</b>
+      <span class="small">Самый питерский вариант из всех возможных.</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s3" value="Б. Кораблик с настроением">
+      <b>Б. Кораблик с настроением</b>
+      <span class="small">Маршрут подлиннее, виды получше, фоток больше.</span>
+    </label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🍻 Основная часть</h2>
+  <div class="time">20:00–22:00</div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s4" value="А. Мясо и пиво" checked>
+      <b>А. Мясо и пиво</b>
+      <span class="small">Надёжно как автомат Калашникова.</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s4" value="Б. Барный рейд">
+      <b>Б. Барный рейд</b>
+      <span class="small">За вечер посещаем 2–3 заведения и выбираем чемпиона Петербурга.</span>
+    </label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🚆 Перед отправлением</h2>
+  <div class="time">22:00–23:00</div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s5" value="А. Красивый Питер" checked>
+      <b>А. Красивый Питер</b>
+      <span class="small">Вечерний центр, подсветка и финальные фотографии.</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="s5" value="Б. Последний бокал">
+      <b>Б. Последний бокал</b>
+      <span class="small">Спокойно сидим рядом с вокзалом и обсуждаем жизнь.</span>
+    </label>
+  </div>
+</div>
+
+<div class="card">
+  <label><b>Пожелания</b></label>
+  <textarea id="comment" rows="4" placeholder="Например: Эрмитаж быстро, кораблик обязательно, пиво не забыть."></textarea>
+</div>
+
+<button class="send" onclick="sendResult()">🚀 Отправить результат</button>
+<div class="hint">После нажатия результат автоматически скопируется. Останется только вставить его в чат.</div>
+
+<div id="toast" class="toast">✅ Скопировано! Отправляй в чат.</div>
+
+<script>
+function getVal(name){
+  return document.querySelector('input[name='+name+']:checked').value;
+}
+
+function buildText(){
+  let name = document.getElementById("name").value.trim();
+  if(!name){ name = "Без имени"; }
+
+  let txt = "";
+  txt += "ПИТЕР\n";
+  txt += "Имя: " + name + "\n\n";
+  txt += "Разгон: " + getVal("s1") + "\n";
+  txt += "Культурная программа: " + getVal("s2") + "\n";
+  txt += "На воду: " + getVal("s3") + "\n";
+  txt += "Основная часть: " + getVal("s4") + "\n";
+  txt += "Перед отправлением: " + getVal("s5") + "\n";
+
+  let comment = document.getElementById("comment").value.trim();
+  if(comment){
+    txt += "\nПожелания:\n" + comment;
+  }
+
+  return txt;
+}
+
+function showToast(text){
+  const toast = document.getElementById("toast");
+  toast.innerText = text;
+  toast.style.display = "block";
+  setTimeout(() => { toast.style.display = "none"; }, 2200);
+}
+
+function sendResult(){
+  const txt = buildText();
+
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(() => {
+      showToast("✅ Скопировано! Отправляй в чат.");
+    }).catch(() => {
+      fallbackCopy(txt);
+    });
+  } else {
+    fallbackCopy(txt);
+  }
+}
+
+function fallbackCopy(text){
+  const area = document.createElement("textarea");
+  area.value = text;
+  document.body.appendChild(area);
+  area.select();
+  try {
+    document.execCommand("copy");
+    showToast("✅ Скопировано! Отправляй в чат.");
+  } catch(e) {
+    alert("Не удалось скопировать автоматически. Выдели текст вручную:\n\n" + text);
+  }
+  document.body.removeChild(area);
+}
+</script>
+
+</body>
+</html>
